@@ -1,122 +1,172 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Web Accessibility</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reset.css">
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/white.css">
+	<title>Browser Extension API</title>
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/monokai.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/beige.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section data-markdown> 
-					<text-area data-template>
-						# W3C Web Accessibility 
-					</text-area>
-				</section>
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/monokai.css">
 
-				<section>
-						<h2>Web Accessibility Initiative (WAI) at W3C</h2>
-						<div>
-								<img data-src="images/img1.jpeg" alt="picture of people with disabilities" style="width: 30%; height: 30%; margin: 5px">
-								<img data-src="images/img2.jpg" alt="picture of people with disabilities" style="width: 30%; height: 30%; margin: 5px">
-								<img data-src="images/img3.jpg" alt="picture of people with disabilities" style="width: 30%; height: 30%; margin: 5px">
-						</div>				
-				</section>
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
 
-				<section>	
-					<h3>Accessibility Principles</h3>
-				<ul>
-					<li >Web accessibility standards</li>
-					<li>Perceivable information and user interface</li>
-					<li>Operable user interface and navigation</li>
-					<li>Understandable information and user interface</li>
-					<li>Robust content and reliable interpretation</li>
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section data-markdown>
+				<text-area data-template>
+					# Browser Extension API
+				</text-area>
+			</section>
+
+			<section>
+				<h2>What are browser extensions</h2>
+				<div>
+					<img data-src="images/Browser-extensions.jpg" alt="picture of browser extensions"
+						style="width: 60%; height: 30%; margin: 5px">
+
+				</div>
+				<aside class="notes">
+						Extensions are small software programs that customize the browsing experience. They enable users to adopt browser functionality and behavior to individual needs or preferences. They are built on web technologies such as HTML, JavaScript, and CSS.
+					</aside>
+			</section>
+
+			<section>
+				<aside class="notes">The extensions allow us to do what we want our web browser to do for us. 
+							User might want to use a browser extension for these different reasons.</aside>
+				<h3>Reasons to use extensions</h3>
+				<ul style="font-size: 30px">
+					<li>The use of extensions helps you to integrate with other services you use</li>
+					<li>The use of extensions helps you to add additional features to your internet browser.</li>
+					<li>The use of extensions helps you to improve the functionality of the internet browser.</li>
+					<li>The use of extensions helps you to modify- adding, removing, or modifying content.</li>
+					<li>The use of extensions helps you to modify- adding, removing, or modifying content.</li>
+					<li>The use of extensions helps you to automate your tasks.</li>
+					<li>The use of extensions helps you to perform multiple tasks with fewer efforts and time.</li>
 				</ul>
+
+			</section>
+
+			<section>
+				<h4>Some browser extensions examples</h4>
+				<ul style="list-style:none; display: flex; justify-content: space-around;">
+					<li class="fragment" style="text-align: center;">Google Translate
+						<img data-src="images/translate.jpg" alt="google translate"
+							style="width: 100%; display: block; margin: 5px">
+					</li>
+					<li class="fragment" style="text-align: center;">Grammarly
+						<img data-src="images/grammarly.jpg" alt="google translate"
+							style="width: 100%; display: block; margin: 5px">
+					</li>
+					<li class="fragment" style="text-align: center;">Print Frienfly
+						<img data-src="images/print-friendly.png" alt="google translate"
+							style="width: 100%; display: block; margin: 5px">
+					</li>
+				</ul>
+			</section>
+
+			<section>
+				<h4>Creating extensions width <b> Web Extensions </b></h4>
+				<img data-src="images/WebExtension.png" alt="web extensions">
+				<aside class="notes">WebExtensions are a way to write browser extensions: that is, programs installed inside a web browser that modify the behaviour of the browser or of web pages loaded by the browser. 
+					They are built on a set of cross-browser APIs, so WebExtensions written for Google Chrome or Opera will in most cases run in Firefox or Edge too.
+				</aside>
+			</section>
+
+			<section>
+				<h4>Anatomy of an extension</h4>
+				<img alt="Anatomy of an extension" style="height: 100%;width: 46%;display: block;margin: 0 auto" src="images/manifest.png" data-lazy-loaded="">
+				<aside class="notes">
+						An extension consists of a collection of files, packaged for distribution and installation. 
+						In this article, we will quickly go through the files that might be present in an extension.	
+
+						This is the only file that must be present in every extension. It contains basic metadata such as its name, version and the permissions it requires. It also provides pointers to other files in the extension.
+						This manifest can also contain pointers to several other types of files:
+								• Background scripts: Implement long-running logic.
+								• Icons for the extension and any buttons it might define.
+								• Sidebars, popups, and options pages: HTML documents that provide content for various user interface components.
+								• Content scripts: JavaScript included with your extension, that you will inject into web pages.
+								• Web-accessible resources: Make packaged content accessible to web pages and content scripts.
+				</aside>
+			</section>
+
+			<section>
+					<h4>Background scripts</h4>
+					<aside class="notes">Extensions often need to maintain long-term state or perform long-term operations independently of the lifetime of any particular web page or browser window. 
+						     That is what background scripts are for.
+								Background scripts are loaded as soon as the extension is loaded and stay loaded until the extension is disabled or uninstalled. 
+								You can use any of the WebExtension APIs in the script, as long as you have requested the necessary permissions.</aside>
 				</section>
+			<section>
+				<h4>Sidebars, popups, options pages</h4>
+				<aside class="notes">Your extension can include various user interface components whose content is defined using an HTML document:
+						• a sidebar is a pane that is displayed at the left-hand side of the browser window, next to the web page
+						• a popup is a dialog that you can display when the user clicks on a toolbar button or address bar button
+						• an options page is a page that's shown when the user accesses your add-on's preferences in the browser's native add-ons manager.
+				For each of these components, you create an HTML file and point to it using a specific property in manifest.json. The HTML file can include CSS and JavaScript files, just like a normal web page.</aside>
+			</section>
+			<section>
+				<h4>Extension pages</h4>
+				<aside class="notes">You can also include HTML documents in your extension which are not attached to some predefined user interface component. Unlike the documents you might provide for sidebars, popups, or options pages, these don't have an entry in manifest.json. 
+					However, they do also get access to all the same privileged WebExtension APIs as your background script.
+				</aside>
+			</section>
+			<section>
+				<h4>Content scripts	</h4>		
+					<aside class="notes">Use content scripts to access and manipulate web pages. Content scripts are loaded into web pages and run in the context of that particular page.
+						Content scripts are extension-provided scripts which run in the context of a web page; this differs from scripts which are loaded by the page itself, including those which are provided in 'script' elements within the page.
+						Content scripts can see and manipulate the page's DOM, just like normal scripts loaded by the page.
+						Unlike normal page scripts, they can:
+								• Make cross-domain XHR requests.
+								• Use a small subset of the WebExtension APIs.
+								• Exchange messages with their background scripts and can in this way indirectly access all the WebExtension APIs.
+						Content scripts cannot directly access normal page scripts but can exchange messages with them using the standard `window.postMessage() API.
+						Usually, when we talk about content scripts, we are referring to JavaScript, but you can inject CSS into web pages using the same mechanism.
+						</aside>
+			</section>
 
 				<section>
-					<h4>Web accessibility standards</h4>
-						<p>web content</p>
-						<p>"user agents"</p>
-						<p>authoring tools</p>				
+					<h4>Web accessible resources</h4>
+					<aside class="notes">Web accessible resources are resources such as images, HTML, CSS, and JavaScript that you include in the extension and want to make accessible to content scripts and page scripts. 
+							For example, if a content script wants to insert some images into web pages, you could include them in the extension and make them web accessible. Then the content script could create and append img tags which reference the images via the src attribute.</aside>
 				</section>
-				<section style="top: 34px;">
-					<section><h4>Perceivable information and user interface</h4>
-						<ul style="list-style:none">
-							<li class="fragment">Text alternatives for non-text content</li>
-							<li class="fragment">Captions and other alternatives for multimedia
-								<img data-src="data:image/png;base64,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" alt="interpreter image" style="width:200px;">
-								<img data-src="https://visualsubtitling.com/blog/wp-content/uploads/2017/06/3932_315subtitles-Copy.jpeg" alt="subtitles image" style="width:30%;">
-							</li>
-						</ul>	
-						</section>
+				<section>Thank you
+					<aside class="notes">this is all the information about which I wanted to tell, so thank you for attention</aside>
+				</section>
 	
-						<section>
-							<p>Content is easier to see and hear
-								<img data-src="https://daktronics.files.wordpress.com/2017/10/vibration.jpg?w=925" alt="bad contrast">
-							</p> 
-						</section>
 
-			
-				</section>
-				<section>
-					<h4>Operable user interface and navigation</h4>
-					<ul style="list-style:none">
-						<li class="fragment">Functionality is available from a keyboard</li>
-						<li class="fragment">Users have enough time to read and use the content</li>
-						<li class="fragment">Users can easily navigate, find content, and determine where they are</li>
-						<li class="fragment">Content does not cause seizures and physical reactions
-							<img data-src="https://avatars.mds.yandex.net/get-pdb/879261/de29c1b0-a139-4f23-a96c-3c6d508d9634/orig" alt="flashing image" style="width:300px; margin: 0 auto; display: block">
-						</li>
-		
-					</ul>
-				</section>
-				<section>
-					<h4>Understandable information and user interface</h4>
-					<ul style="list-style:none">
-						<li class="fragment">Text is readable and understandable</li>
-						<li class="fragment">Content appears and operates in predictable ways</li>
-						<li class="fragment">Users are helped to avoid and correct mistakes</li>
-					</ul>
-				</section>
-				<section>
-					<h4>Robust content and reliable interpretation</h4>
-					<p>Content is compatible with current and future user tools</p>
-				</section>
-			</div>
 		</div>
+	</div>
 
-		<script src="js/reveal.js"></script>
+	<script src="js/reveal.js"></script>
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true }
-				]
-			});
-		</script>
-	</body>
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true }
+			]
+		});
+	</script>
+</body>
+
 </html>
